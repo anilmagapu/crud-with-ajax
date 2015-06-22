@@ -1,0 +1,37 @@
+<h1>Listing products</h1>
+
+<table class="table">
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Category</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @products.each do |product| %>
+  <tr>
+    <td><%= product.name %></td>
+
+    <td><%= product.description %></td>
+
+     <% @cat=Category.where(:id=>product.category_id).first %>
+
+    <td><%=@cat.name %></td>
+     
+    <td><%= link_to 'Show', product %></td>
+    <td><%= link_to 'Edit', edit_product_path(product) %></td>
+    <%if current_user.role !="admin" %>
+    <td><%= link_to 'Review the Product', new_product_review_path(product) %></td>
+    <%end%>
+    <%if current_user.role == 'admin' %>
+    <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <%end%>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Product', new_product_path %>

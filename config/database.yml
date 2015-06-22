@@ -1,0 +1,20 @@
+common: &common
+  host: localhost
+  port: 5432
+  adapter: postgresql
+  username: postgres
+  password: root
+  pool: 25
+
+development:
+  <<: *common
+  database: sample_development
+
+test:
+  <<: *common
+  database: sample_test
+
+production:
+  <<: *common
+  database: sample_production
+

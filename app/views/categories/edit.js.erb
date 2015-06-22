@@ -1,0 +1,6 @@
+
+
+
+
+$('#category_<%= @category.id %>').children('td:first').html("<%= escape_javascript(render(:partial => "form1"))%>")
+$('#category_<%= @category.id %>').children('td:nth-child(2)').children('#ed').css("display","none");

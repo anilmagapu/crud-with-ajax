@@ -1,0 +1,29 @@
+<%= form_for(@category,remote:true) do |f| %>
+  
+
+ 
+    <%= f.text_field :name %>
+    <p id="msg" style="display:inline;color:red"></p>
+  <div id="a" style="display:inline;float:right;margin-right: 94px">
+   
+     <%= f.submit  %>
+   <button type="button" class="cancel" >Cancel</button>
+
+   </div>
+
+<% end %>
+
+ <script type="text/javascript">
+			$("#new_category").submit(function(){
+			            $("#categ").hide();
+			});
+
+			$('#edit_category_<%= @category.id %>').children('#a').children(".cancel").click(function(){
+			   
+						$('#category_<% @category.id  %>').children('#edit_category_<%= @category.id %>').hide();
+						valu= $('#edit_category_<%= @category.id %>').children('#category_name').attr('value');
+						$('#category_<%= @category.id %>').children('td:first').html(valu);
+						$('#category_<%= @category.id %>').children('td:nth-child(2)').children('#ed').css("display","block");
+			   });
+
+</script>

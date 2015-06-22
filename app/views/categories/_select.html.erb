@@ -1,0 +1,24 @@
+<div id="p_c"class="col-xs-6 col-md-8" style="margin-left: 900px;">
+       <%= collection_select(:product ,:category_id,  Category.all,  :id, :name,prompt: "Select Category") %> 
+ </div>
+ <script>
+$(document).ready(function() {
+    $('#product_category_id').change(function(){
+    
+     $('#reseller').show();
+        $.ajax({
+                type: 'POST',
+                url: "/pro",
+                data: {cat_id: $('#product_category_id').val()},
+                success: function(data){
+                   data=$(data).find('#aa');
+
+      $('#reseller').html(data)
+    }
+         });
+    });
+    
+    
+});
+</script>
+          

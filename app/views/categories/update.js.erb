@@ -1,0 +1,17 @@
+<% if !@a.blank? %>
+
+$('#edit_category_<%= @c_id %>').hide();
+
+$('#category_<%= @category.id %>').children('td:first').html("<%= @c_name %>");
+ $('#category_<%= @category.id %>').children('td:nth-child(2)').children('#ed').css("display","block");
+
+<% else %>
+	
+	//$("#categ").html("<%= escape_javascript(render('form'))%>");
+	//$("#categ").show();
+	$("#category_name").focus();
+	
+	$("#msg").html("can't blank");
+	
+	//$("label[for='category_name']").append("<p style='color:red'> name cant't be blank </p>");
+<% end %>

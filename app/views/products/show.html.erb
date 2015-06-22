@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @product.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @product.description %>
+</p>
+<p>
+
+<%= image_tag @product.image.url(:thumb) %>
+</p>
+<%if current_user.role =="admin"%>
+<%= link_to 'Edit', edit_product_path(@product) %> |<%= link_to 'Back', products_path %>
+<%end %>
+<%if @product.reviews.any? %>
+ <% @product_reviews=@product.reviews %>
+
+
+<br>
+<b>Product reviews</b>
+<% @product_reviews.each do |product_review|%>
+ <br><b>review:</b><%=product_review.description %>
+<br><b>rating:</b><%=product_review.rating %>
+<%end%>
+<%else%>
+<p>No Reviews available</p>
+<%end%>
+<br>
+

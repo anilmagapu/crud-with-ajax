@@ -1,0 +1,10 @@
+//$('#field1'.replaceWith("<%= escape_javascript(render(:partial => "form"))%>")
+//$('#field1').append("<%= j render partial: 'data', locals: {category: @category } %>");
+//$('#field1').append("<%= j render partial: 'data', locals: {category: @category } %>");
+$("#categ").show();
+$("#categ").html("<%= escape_javascript(render(:partial => "form"))%>")
+ 
+$("#select_data").html("<%= escape_javascript(render('select'))%>");
+//$('#field1').append("<%= j render partial: 'data', locals: {category: @category } %>");
+
+//$("#product-modal").modal("show")

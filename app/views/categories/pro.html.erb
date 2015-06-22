@@ -1,0 +1,33 @@
+
+<table id="aa">
+<% if @products.blank? %>
+<tr><td><strong>No Products available</strong></td></tr>
+<%else %>
+ <tr>
+    <th colspan="3">Product details</th>
+    <th></th>
+    <th></th>
+ </tr>
+  <tr>
+  
+    <th>Name</th>
+    <th>Description</th>
+     <th>Image</th>
+    <th></th>
+    <th></th>
+    <th></th>
+
+
+  </tr>
+
+                <% @products.each do |product| %>
+                  <tr>
+                    <td><%= product.name %></td>
+                    <td><%= product.description %></td>
+                    <td><%= image_tag product.image.url(:thumb) %></td>
+                  
+                 </tr>
+                 <% end %>
+  <%end%>
+</table>
+

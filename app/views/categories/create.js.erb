@@ -1,0 +1,13 @@
+
+
+<% if !@a.blank? %>
+	$('.table').append("<%= j render partial: 'data', locals: {category: @category } %>");
+	$("#select_data").html("<%= escape_javascript(render('select'))%>");
+<% else %>
+	
+	$("#categ").html("<%= escape_javascript(render('form'))%>");
+	$("#categ").show();
+	$("#category_name").focus();
+	$("#category_name").append("<p>Name can't be blank</p>");
+	$("label[for='category_name']").append("<p style='color:red'> name cant't be blank </p>");
+<% end %>

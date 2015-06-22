@@ -1,0 +1,45 @@
+<h1>Listing categories</h1>
+<div id="a"></div>
+
+
+
+
+
+</div>
+
+<div id="field1">
+<table class="table">
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+<% @categories.each do |category| %>
+  
+ <%= render partial: 'data', locals: {category: category} %>  
+<% end %>
+</table>
+</div>
+<br />
+<%= link_to 'New Category', new_category_path,id: "an_id",:remote=> true %>
+      <div class="field">
+<div id="select_data">
+      <%= render partial: 'select' %>  
+      
+</div>
+</div>
+</div></div>
+<br><br>
+<div>
+ 
+      <div id="categ" style="width: 250px;float: left;">
+      </div>
+      <div id="reseller" style="margin-right: 400px;width: 250px;float: right;"></div>
+</div>
+
+
+
+
+
+ 
